@@ -1,0 +1,99 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.contact {
+    @include container;
+    padding-top: $spacing-12;
+    padding-bottom: $spacing-12;
+
+    &__title {
+        font-size: $font-4xl;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: $spacing-12;
+    }
+
+    &__grid {
+        display: grid;
+        gap: $spacing-12;
+
+        @include responsive(md) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &__info {
+        &-title {
+            font-size: $font-2xl;
+            font-weight: 600;
+            margin-bottom: $spacing-6;
+        }
+
+        &-list {
+            display: flex;
+            flex-direction: column;
+            gap: $spacing-4;
+        }
+
+        &-item {
+            @include flex-center;
+            justify-content: flex-start;
+            gap: $spacing-3;
+
+            svg {
+                color: $primary-color;
+            }
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-4;
+
+        &-group {
+            label {
+                display: block;
+                font-size: $font-sm;
+                font-weight: 500;
+                color: $gray-600;
+                margin-bottom: $spacing-1;
+            }
+
+            input,
+            textarea {
+                width: 100%;
+                padding: $spacing-2 $spacing-4;
+                border: 1px solid $gray-300;
+                border-radius: $radius-md;
+                transition: $transition-base;
+
+                &:focus {
+                    outline: none;
+                    border-color: $primary-color;
+                    box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+                }
+            }
+        }
+
+        &-button {
+            @include primary-button;
+        }
+    }
+
+    &__map {
+        height: 400px;
+        border-radius: $radius-lg;
+        overflow: hidden;
+
+        @include responsive(md) {
+            height: 100%;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    }
+}

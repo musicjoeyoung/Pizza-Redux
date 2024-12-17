@@ -1,0 +1,62 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.cart-item {
+    @include flex-between;
+    padding: $spacing-4 0;
+    border-bottom: 1px solid $gray-200;
+
+    &__info {
+        flex: 1;
+    }
+
+    &__name {
+        font-weight: 600;
+    }
+
+    &__price {
+        color: $text-light;
+    }
+
+    &__controls {
+        @include flex-center;
+        gap: $spacing-4;
+    }
+
+    &__quantity {
+        @include flex-center;
+        gap: $spacing-2;
+
+        &-button {
+            padding: $spacing-1;
+            border-radius: $radius-full;
+            transition: $transition-base;
+
+            &:hover {
+                background-color: $gray-100;
+            }
+        }
+
+        &-value {
+            width: 2rem;
+            text-align: center;
+        }
+    }
+
+    &__total {
+        font-weight: 600;
+        width: 5rem;
+        text-align: right;
+    }
+
+    &__remove {
+        padding: $spacing-1;
+        color: $primary-color;
+        border-radius: $radius-full;
+        transition: $transition-base;
+
+        &:hover {
+            background-color: rgba($primary-color, 0.1);
+        }
+    }
+}
